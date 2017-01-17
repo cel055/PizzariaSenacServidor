@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Fornecedor">
+            <h:form id="formulario_fornecedor">
+                <h:panelGrid id="painel" columns="2">
+                    <h:outputText  value="Nome: " />
+                    <p:inputText id="nome" value="#{fornecedorControle.fornecedor.nome}" required="true"/>
+                    <h:outputText  value="Email: " />
+                    <p:inputText id="email" value="#{fornecedorControle.fornecedor.email}" required="true"/>
+                    <h:outputText  value="Telefone: " />
+                    <p:inputMask id="telefone" value="#{fornecedorControle.fornecedor.telefone}" required="true" mask="(99)9999-9999"/>
+                    <h:outputText  value="Cnpj: " />
+                    <p:inputText id="cnpj" value="#{fornecedorControle.fornecedor.cnpj}" required="true"/>
+                    <h:outputText  value="Nome Fantasia: " />
+                    <p:inputText id="nomeFantasia" value="#{fornecedorControle.fornecedor.nomeFantasia}" required="true"/>
+                    <h:outputText  value="Fax: " />
+                    <p:inputMask id="fax" value="#{fornecedorControle.fornecedor.fax}" required="true" mask="(99)9999-9999"/>
+                    <h:outputText  value="Razão Social: " />
+                    <p:inputText id="razaoSocial" value="#{fornecedorControle.fornecedor.razaoSocial}" required="true"/>
+                    <h:outputText  value="Telefone Reserva: " />
+                    <p:inputMask id="telefoneReserva" value="#{fornecedorControle.fornecedor.segundoTel}" required="true" mask="(99)9999-9999"/>
+                    <h:outputText  value="Rua: " />
+                    <p:inputText id="rua" value="#{fornecedorControle.endereco.rua}" required="true"/>
+                    <h:outputText  value="Numero: " />
+                    <p:inputText id="numero" value="#{fornecedorControle.endereco.numero}" required="true"/>
+                    <h:outputText  value="Complemento: " />
+                    <p:inputText id="complemento" value="#{fornecedorControle.endereco.complemento}" required="true"/>
+                    <h:outputText  value="Ponto de Referência: " />
+                    <p:inputText id="referencia" value="#{fornecedorControle.endereco.pontoReferencia}" required="true"/>
+                    <h:outputText  value="Bairro: " />
+                    <p:inputText id="bairro" value="#{fornecedorControle.endereco.bairro}" required="true"/>
+                    <h:outputText  value="Cidade: " />
+                    <p:inputText id="cidade" value="#{fornecedorControle.endereco.cidade}" required="true"/>
+                    <h:commandButton value="salvar" action="#{fornecedorControle.salvar()}" />
+                </h:panelGrid>
+            </h:form>
+        </p:layoutUnit>
+        
+       
+     </ui:define>
+
+</ui:composition>

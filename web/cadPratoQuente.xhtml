@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./index.xhtml">
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Ingrediente">
+            <h:form id="form_ingrediente">                
+                <h:panelGrid id="painel" columns="2">
+                    <h:outputText  value="Nome:" />
+                    <p:inputText id="nome" value="#{pratoQuenteControle.pratoQuente.nome}" required="false" requiredMessage="Campo nome é obrigatorio! "/>
+                    <p:selectCheckboxMenu value="#{pratoQuenteControle.selectedItens}" label="Ingredientes" filter="true" filterText="Filter" filterMatchMode="startsWith" panelStyle="width:400px">
+                        <f:selectItems value="#{pratoQuenteControle.selectItens}"/>
+                    </p:selectCheckboxMenu>
+                    <p:commandButton value="Salvar" action="#{pratoQuenteControle.salva()}"/>
+                </h:panelGrid>
+            </h:form>
+        </p:layoutUnit>
+    </ui:define>
+
+</ui:composition>

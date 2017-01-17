@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                >
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Prato Quente">
+            <h:form id="formularioPratoQuente">
+                <h:panelGrid columns="2">
+                    <p:fieldset toggleable="true" style="width: 400px;">
+                        <h:outputText value="Nome: "/>
+                        <p:inputText id="nome" value="#{pratoQuenteControle.pratoQuente.nome}" size="">
+                            <p:focus for="nome"/>
+                        </p:inputText>
+                        <p:commandButton value="Pesquisar" image="ui-icon-search" 
+                                         action="#{pratoQuenteControle.pesquisaLike()}" ajax="false"/>
+                    </p:fieldset>
+                </h:panelGrid>
+
+                <p:separator style="width: 100%; height: 1px; margin-top: 10px;"/>
+
+                <p:dataTable id="tabelaPatoQuente" 
+                             value="#{pratoQuenteControle.model}" var="pratoQuente" 
+                             rows="4" emptyMessage="Nenhum valor encontrado">
+                    <f:facet name="header">  
+                        Listando Pratos Quentes
+                    </f:facet>
+
+                    <p:columnGroup type="header"> 
+                        <p:row>  
+                            <p:column headerText="Nome: "/>
+                            <p:column headerText="Alterar: " />
+                            <p:column headerText="Excluir: " />
+
+                        </p:row>
+
+                    </p:columnGroup>  
+
+                    <p:column>  
+                        #{pratoQuente.nome}  
+                    </p:column>
+                      
+                    <p:column>
+                        <p:commandLink action="#{pc.alterar()}" value="Alterar " ajax="false" />
+                    </p:column>
+                    <p:column>
+                        <p:commandLink action="#{pc.excluir()}" value=" Excluir" ajax="false" />
+                    </p:column>
+
+                </p:dataTable>
+
+                <p:separator style="width: 100%; height: 1px; margin-top: 10px;"/>
+
+                <p:dataTable id="tabelaIngredientes" 
+                             value="#{pratoQuenteControle.model}" var="pratoQuente2"
+                             rows="4" emptyMessage="Nenhum valor encontrado">
+                    <f:facet name="header">  
+                        Listando Pratos Quentes    
+                    </f:facet>
+
+                    <p:columnGroup type="header"> 
+                        <p:row>  
+                            <p:column headerText="Nome do prato: " />
+                            <p:column headerText="Nome do ingrediente: " />
+                            <p:column headerText="Alterar: " />
+                            <p:column headerText="Excluir: " />
+
+                        </p:row>
+
+                    </p:columnGroup>  
+
+                    <p:subTable var="ingrediente" value="#{pratoQuente2.ingredientes}">
+
+                        <p:column>  
+                            #{pratoQuente2.nome}   
+                        </p:column>
+                        <p:column>  
+                            #{ingrediente.nome}  
+                        </p:column>  
+
+                        <p:column>
+                            <p:commandLink action="#{pc.alterar()}" value="Alterar " ajax="false" />
+                        </p:column>
+                        <p:column>
+                            <p:commandLink action="#{pc.excluir()}" value=" Excluir" ajax="false" />
+                        </p:column>
+
+                    </p:subTable>  
+
+                </p:dataTable>
+            </h:form>
+        </p:layoutUnit>
+    </ui:define>
+
+</ui:composition>

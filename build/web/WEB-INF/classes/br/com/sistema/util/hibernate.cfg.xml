@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/banco</property>
+        <property name="hibernate.connection.username">root</property>
+<!--        <property name="hibernate.connection.password">root</property>-->
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <mapping class="br.com.sistema.entidade.Pessoa"/>
+        <mapping class="br.com.sistema.entidade.PessoaJuridica"/>
+        <mapping class="br.com.sistema.entidade.Endereco"/>
+        <mapping class="br.com.sistema.entidade.Mesa"/>
+        <mapping class="br.com.sistema.entidade.PessoaFisica"/>
+        <mapping class="br.com.sistema.entidade.Funcionario"/>
+        <mapping class="br.com.sistema.entidade.Usuario"/>
+        <mapping class="br.com.sistema.entidade.Perfil"/>
+        <mapping class="br.com.sistema.entidade.Fornecedor"/>
+        <mapping class="br.com.sistema.entidade.ClienteOnline"/>
+        <mapping class="br.com.sistema.entidade.Ingrediente"/>
+        <mapping class="br.com.sistema.entidade.IngredienteBebida"/>
+        <mapping class="br.com.sistema.entidade.IngredientePizza"/>
+        <mapping class="br.com.sistema.entidade.PratoQuente"/>
+    
+    </session-factory>
+</hibernate-configuration>

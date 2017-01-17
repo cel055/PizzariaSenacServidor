@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Ingrediente">
+            <h:form id="form_ingrediente">                
+                    <h:panelGrid id="painel" columns="2">
+                        <h:outputText  value="Nome:" />
+                        <p:inputText id="nome" value="#{ingredienteBebidaControle.ingredienteBebida.nome}" required="false" requiredMessage="Campo nome é obrigatorio! "/>
+                        <h:outputText  value="Volume:" />
+                        <p:inputText id="volume" value="#{ingredienteBebidaControle.ingredienteBebida.volume}" required="false" requiredMessage="Campo sigla é obrigatorio! "/>
+                        <h:outputText value="Fornecedores: "/>
+                        <p:selectOneMenu value="#{ingredienteBebidaControle.fornecedor.id}" effect="fold" required="true" requiredMessage="Campo obrigatório">
+                            <f:selectItem itemLabel="Selecione um fornecedor" itemValue=""/>
+                            <f:selectItems value="#{ingredienteBebidaControle.fornecedores}"/>
+                        </p:selectOneMenu>
+                        <p:commandButton value="Salvar" action="#{ingredienteBebidaControle.salva()}" ajax="false"/>
+                    </h:panelGrid>
+            </h:form>
+        </p:layoutUnit>
+    </ui:define>
+
+</ui:composition>

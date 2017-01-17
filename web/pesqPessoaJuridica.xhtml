@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                >
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Pessoa Jurídica">
+            <h:form id="formularioPessoaJurica">
+                <h:panelGrid columns="2">
+                    <p:fieldset toggleable="true" style="width: 400px;">
+                        <h:outputText value="Nome: "/>
+                        <p:inputText id="nome" value="#{pessoaJuridicaControle.pessoa.nome}" size="">
+                            <p:focus for="nome"/>
+                        </p:inputText>
+                        <p:commandButton value="Pesquisar" image="ui-icon-search" 
+                                         action="#{pessoaJuridicaControle.pesquisaLike()}" ajax="false"/>
+                    </p:fieldset>
+                </h:panelGrid>
+
+                <p:separator style="width: 100%; height: 1px; margin-top: 10px;"/>
+
+                <p:dataTable id="tabelaPessoJuridica" 
+                             value="#{pessoaJuridicaControle.model}" var="pessoa" 
+                             rows="5" emptyMessage="Nenhum valor encontrado">
+                    <f:facet name="header">  
+                        Listando Pessoas Jurídicas    
+                    </f:facet>
+
+                    <p:columnGroup type="header"> 
+                        <p:row>  
+                            <p:column headerText="Nome: "/>  
+                            <p:column headerText="CPF: " />  
+                            <p:column headerText="Alterar: "/>  
+                            <p:column headerText="Excluir: " />  
+                        </p:row>
+                         
+                    </p:columnGroup>  
+                        
+                        <p:column>  
+                            #{pessoa.nome}  
+                        </p:column>
+                       <p:column>  
+                            #{pessoa.cpf}  
+                        </p:column>
+                    <p:column>
+                        <p:commandLink action="#{pessoaJuridicaControle.alterar()}" value="Alterar " ajax="false" />
+                        </p:column>
+                        <p:column>
+                            <p:commandLink action="#{pessoaJuridicaControle.excluir()}" value=" Excluir" ajax="false" />
+                        </p:column>
+                     
+                </p:dataTable>
+            </h:form>
+        </p:layoutUnit>
+    </ui:define>
+
+</ui:composition>

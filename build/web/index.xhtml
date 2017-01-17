@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <link type="text/css" rel="stylesheet" href="css/custom-theme/jquery-ui-1.9.2.custom.css" /> 
+        <link type="text/css" rel="stylesheet" href="css/custom-theme/estilo.css" /> 
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="170"  resizable="true"  collapsible="true" >
+                
+                <div id="topo2" align="center">
+
+                    <a href="index.faces"><p:graphicImage value="img/logo.png" id="logo"/></a>
+                </div>
+                    
+                        
+                    
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="200" header="Menu" resizable="true" closable="false" collapsible="true" effect="drop">
+                <h:form>
+			
+    
+
+    <p:panelMenu style="font-size: 10px">
+        
+        <p:submenu label="Cliente" >
+            <p:menuitem value="Cadastrar" action="#{clienteOnlineControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#{clienteOnlineControle.limpaPesquisa()}"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="Fornecedor">
+            <p:menuitem value="Cadastrar" action="#{fornecedorControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#{fornecedorControle.limpaPesquisa()}"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="Funcionário">
+            <p:menuitem value="Cadastrar" action="#{funcionarioControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#{funcionarioControle.limpaPesquisa()}"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="Tele-entrega">
+            <p:menuitem value="Cadastrar" action="#{pessoaControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="TeleCadastrado">
+            <p:menuitem value="Cadastrar" action="#{clienteTeleCadastradoControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="Mesa">
+            <p:menuitem value="Cadastrar" action="#{mesaControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#{mesaControle.limpaPesquisa()}"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="Ingrediente">
+            <p:menuitem value="Cadastrar" action="#{ingredienteControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="IngredientePizza">
+            <p:menuitem value="Cadastrar" action="#{ingredientePizzaControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#{ingredientePizzaControle.limpaPesquisa()}"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="IngredienteBebida">
+            <p:menuitem value="Cadastrar" action="#{ingredienteBebidaControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        <p:submenu label="Cardápio">
+            <p:menuitem value="Cadastrar" action="#{pratoQuenteControle.novo()}" icon="ui-icon-disk" ajax="false"/>
+            <p:menuitem value="Buscar" action="#{pratoQuenteControle.limpaPesquisa()}"  icon="ui-icon-search" ajax="false"/>
+        </p:submenu>
+        
+        
+    </p:panelMenu>
+
+</h:form>
+            </p:layoutUnit>
+
+            <ui:insert name="center">
+                <p:layoutUnit position="center" header="Index">
+                    Ola
+                </p:layoutUnit>
+
+                
+            </ui:insert>
+            
+        </p:layout>
+        
+    </h:body>
+</html>
+

@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                >
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Cliente">
+            <h:form id="formularioClienteOnline">
+                <h:panelGrid columns="2">
+                    <p:fieldset toggleable="true" style="width: 400px;">
+                        <h:outputText value="Nome: "/>
+                        <p:inputText id="nome" value="#{clienteOnlineControle.cliente.nome}" size="">
+                            <p:focus for="nome"/>
+                        </p:inputText>
+                        <p:commandButton value="Pesquisar" image="ui-icon-search" 
+                                         action="#{clienteOnlineControle.pesquisaLike()}" ajax="false"/>
+
+                    </p:fieldset>
+                </h:panelGrid>
+
+                <p:separator style="width: 100%; height: 1px; margin-top: 10px;"/>
+
+                <p:dataTable id="tabelaCliente" 
+                             value="#{clienteOnlineControle.model}" var="cliente" 
+                             rows="5" emptyMessage="Nenhum valor encontrado">
+                    <f:facet name="header">  
+                        Listando Clientes    
+                    </f:facet>
+
+                    <p:columnGroup type="header"> 
+                        <p:row>  
+                            <p:column headerText="Nome: "/>  
+                            <p:column headerText="Login" />  
+                            <p:column headerText="Email: " />  
+                            <p:column headerText="Fone: " />
+                            <p:column headerText="Nascimento: " />
+                            <p:column headerText="Alterar: " />
+                            <p:column headerText="Excluir: " />
+                            
+                        </p:row>
+                         
+                    </p:columnGroup>  
+                        
+                        <p:column>  
+                            #{cliente.nome}  
+                        </p:column>
+                       <p:column>  
+                            #{cliente.usuario.login}  
+                        </p:column>
+                        <p:column>  
+                            #{cliente.email}  
+                        </p:column>  
+                        <p:column>  
+                            #{cliente.telefone}  
+                        </p:column>  
+                        <p:column>  
+                            #{cliente.nascimento}  
+                        </p:column>
+                    <p:column>
+                            <p:commandLink action="#{pc.alterar()}" value="Alterar " ajax="false" />
+                        </p:column>
+                        <p:column>
+                            <p:commandLink action="#{pc.excluir()}" value=" Excluir" ajax="false" />
+                        </p:column>
+                        
+                     
+                </p:dataTable>
+                
+                <p:separator style="width: 100%; height: 1px; margin-top: 10px;"/>
+                
+                <p:dataTable id="tabelaEndereco" 
+                             value="#{clienteOnlineControle.model}" var="cliente2"
+                             rows="5" emptyMessage="Nenhum valor encontrado">
+                    <f:facet name="header">  
+                        Listando Enderecos    
+                    </f:facet>
+
+                    <p:columnGroup type="header"> 
+                        <p:row>  
+                            <p:column headerText="Nome: " />  
+                            <p:column headerText="Rua: " />  
+                            <p:column headerText="Número: " />
+                            <p:column headerText="Complemento: " />
+                            <p:column headerText="Referêcia: " />
+                            <p:column headerText="Bairro" />
+                            <p:column headerText="Cidade" />
+                            <p:column headerText="Alterar: " />
+                            <p:column headerText="Excluir: " />
+                             
+                        </p:row>
+                         
+                    </p:columnGroup>  
+
+                    <p:subTable var="endereco" value="#{cliente2.enderecos}">
+                        
+                        <p:column>  
+                            #{cliente2.nome}   
+                        </p:column>
+                        <p:column>  
+                            #{endereco.rua}  
+                        </p:column>  
+                        <p:column>  
+                            #{endereco.numero}  
+                        </p:column>  
+                        <p:column>  
+                            #{endereco.complemento}  
+                        </p:column>  
+                        <p:column>  
+                            #{endereco.pontoReferencia}  
+                        </p:column>  
+                        <p:column>  
+                            #{endereco.bairro}  
+                        </p:column>  
+                        <p:column>  
+                            #{endereco.cidade}  
+                        </p:column>
+                        <p:column>
+                            <p:commandLink action="#{pc.alterar()}" value="Alterar " ajax="false" />
+                        </p:column>
+                        <p:column>
+                            <p:commandLink action="#{pc.excluir()}" value=" Excluir" ajax="false" />
+                        </p:column>
+
+                    </p:subTable>  
+                     
+                </p:dataTable>
+            </h:form>
+        </p:layoutUnit>
+    </ui:define>
+
+</ui:composition>

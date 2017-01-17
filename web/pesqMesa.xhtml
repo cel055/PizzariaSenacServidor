@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                >
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Mesa">
+            <h:form id="formularioMesa">
+                <h:panelGrid columns="2">
+                    <p:fieldset toggleable="true" style="width: 400px;">
+                        <h:outputText value="Nome: "/>
+                        <p:inputText id="nome" value="#{mesaControle.mesa.numero}" size="">
+                            <p:focus for="nome"/>
+                        </p:inputText>
+                        <p:commandButton value="Pesquisar" image="ui-icon-search" 
+                                         action="#{mesaControle.pesquisa()}" ajax="false"/>
+                    </p:fieldset>
+                </h:panelGrid>
+
+                <p:separator style="width: 100%; height: 1px; margin-top: 10px;"/>
+
+                <p:dataTable id="tabelaMesa" 
+                             value="#{mesaControle.model}" var="mesa" 
+                             rows="5" emptyMessage="Nenhum valor encontrado">
+                    <f:facet name="header">  
+                        Listando Mesas    
+                    </f:facet>
+
+                    <p:columnGroup type="header"> 
+                        <p:row>  
+                            <p:column headerText="Número: "/>  
+                            <p:column headerText="Disponível: " />  
+                            <p:column headerText="Alterar: "/>  
+                            <p:column headerText="Excluir: " />  
+                        </p:row>
+                         
+                    </p:columnGroup>  
+                        
+                        <p:column>  
+                            #{mesa.numero}  
+                        </p:column>
+                       <p:column>  
+                            #{mesa.disponivel}  
+                        </p:column>
+                    <p:column>
+                            <p:commandLink action="#{pc.alterar()}" value="Alterar " ajax="false" />
+                        </p:column>
+                        <p:column>
+                            <p:commandLink action="#{pc.excluir()}" value=" Excluir" ajax="false" />
+                        </p:column>
+                     
+                </p:dataTable>
+            </h:form>
+        </p:layoutUnit>
+    </ui:define>
+
+</ui:composition>

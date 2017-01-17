@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Mesa">
+            <h:form id="formulario_mesa">
+                <h:panelGrid id="painel" columns="2">
+                    <h:outputText  value="Número: " />
+                    <p:inputText id="numero" value="#{mesaControle.mesa.numero}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:outputText  value="Disponível: " />
+                    <p:inputText id="disponivel" value="#{mesaControle.mesa.disponivel}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    
+                    <h:commandButton value="salvar" action="#{mesaControle.salvar()}" />
+                </h:panelGrid>
+            </h:form>
+        </p:layoutUnit>
+       
+        
+     </ui:define>
+
+</ui:composition>

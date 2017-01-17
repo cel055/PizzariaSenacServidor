@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Funcionario">
+            <h:form id="formulario_funcionario">
+                <h:panelGrid id="painel" columns="2">
+                    <h:outputText  value="Nome: " />
+                    <p:inputText id="nome" value="#{funcionarioControle.funcionario.nome}" required="true"/>
+                    <h:outputText  value="Email: " />
+                    <p:inputText id="email" value="#{funcionarioControle.funcionario.email}" required="true"/>
+                    <h:outputText  value="Telefone: " />
+                    <p:inputMask id="telefone" value="#{funcionarioControle.funcionario.telefone}" required="true" mask="(99)9999-9999"/>
+                    <h:outputText  value="Login: " />
+                    <p:inputText id="login" value="#{funcionarioControle.usuario.login}" required="true"/>
+                    <h:outputText  value="Rg: " />
+                    <p:inputText id="rg" value="#{funcionarioControle.funcionario.rg}" required="true"/>
+                    <h:outputText  value="Cpf: " />
+                    <p:inputMask id="cpf" value="#{funcionarioControle.funcionario.cpf}" required="true" mask="999.999.999-99"/>
+                    <h:outputText  value="Salário: " />
+                    <p:inputText id="salario" value="#{funcionarioControle.funcionario.salario}" required="true"/>
+                    <h:outputText  value="Função: " />
+                    <p:inputText id="funcao" value="#{funcionarioControle.funcionario.funcao}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:outputText  value="Rua: " />
+                    <p:inputText id="rua" value="#{funcionarioControle.endereco.rua}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:outputText  value="Numero: " />
+                    <p:inputText id="numero" value="#{funcionarioControle.endereco.numero}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:outputText  value="Complemento: " />
+                    <p:inputText id="complemento" value="#{funcionarioControle.endereco.complemento}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:outputText  value="Ponto de Referência: " />
+                    <p:inputText id="referencia" value="#{funcionarioControle.endereco.pontoReferencia}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:outputText  value="Bairro: " />
+                    <p:inputText id="bairro" value="#{funcionarioControle.endereco.bairro}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:outputText  value="Cidade: " />
+                    <p:inputText id="cidade" value="#{funcionarioControle.endereco.cidade}" required="true" requiredMessage="Campo número é obrigatorio! "/>
+                    <h:commandButton value="salvar" action="#{funcionarioControle.salvar()}" />
+                </h:panelGrid>
+            </h:form>
+        </p:layoutUnit>
+        
+        
+     </ui:define>
+
+</ui:composition>

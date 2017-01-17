@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./index.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="center">
+        <p:layoutUnit position="center" header="Cliente">
+            <h:form id="formulario_ClienteOnline">
+                <h:panelGrid id="painel" columns="2">
+                    <h:outputText  value="Nome: " />
+                    <p:inputText id="nome" value="#{clienteOnlineControle.cliente.nome}" required="false"/>
+                    <h:outputText  value="Login: " />
+                    <p:inputText id="login" value="#{clienteOnlineControle.usuario.login}" required="true"/>
+                    <h:outputText  value="Telefone: " />
+                    <p:inputMask id="telefone" value="#{clienteOnlineControle.cliente.telefone}" required="false" mask="(99)9999-9999"/>
+                    <h:outputText  value="Email: " />
+                    <p:inputText id="email" value="#{clienteOnlineControle.cliente.email}" required="false"/>
+                    <h:outputText  value="Nascimento: " />
+                    <p:inputMask id="nascimento" value="#{clienteOnlineControle.cliente.nascimento}" required="false" mask="99/99/9999"/>
+                    <h:outputText  value="Rua: " />
+                    <p:inputText id="rua" value="#{clienteOnlineControle.endereco.rua}" required="true"/>
+                    <h:outputText  value="Numero: " />
+                    <p:inputText id="numero" value="#{clienteOnlineControle.endereco.numero}" required="false"/>
+                    <h:outputText  value="Complemento: " />
+                    <p:inputText id="complemento" value="#{clienteOnlineControle.endereco.complemento}" required="false"/>
+                    <h:outputText  value="Ponto de Referência: " />
+                    <p:inputText id="referencia" value="#{clienteOnlineControle.endereco.pontoReferencia}" required="false"/>
+                    <h:outputText  value="Bairro: " />
+                    <p:inputText id="bairro" value="#{clienteOnlineControle.endereco.bairro}" required="true"/>
+                    <h:outputText  value="Cidade: " />
+                    <p:inputText id="cidade" value="#{clienteOnlineControle.endereco.cidade}" required="true"/>
+                    <h:commandButton value="salvar" action="#{clienteOnlineControle.salvar()}" />
+                </h:panelGrid>
+            </h:form>
+        </p:layoutUnit>
+        
+        
+     </ui:define>
+    
+
+</ui:composition>
